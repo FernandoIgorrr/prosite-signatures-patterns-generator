@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --configuration production --base-href /prosite-signatures-patterns-generator/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:prosite-signatures-patterns-generator": "node dist/prosite-signatures-patterns-generator/server/server.mjs"

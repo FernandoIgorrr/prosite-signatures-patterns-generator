@@ -15,7 +15,7 @@ import {  MatTabsModule     } from '@angular/material/tabs';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { CommonModule, NgComponentOutlet, NgFor, NgTemplateOutlet } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 
 @Component({

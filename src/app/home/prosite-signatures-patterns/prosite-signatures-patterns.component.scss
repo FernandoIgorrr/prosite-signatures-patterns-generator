@@ -1,0 +1,133 @@
+main {
+  top: 10%;
+  display: flex;
+  flex-direction: column; /* Apenas se desejar centralizar verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+ //background-color: red;
+}
+
+.fasta-container {
+  font-family: "Lucida Console", Courier, monospace; /* Define uma fonte monoespaçada */
+  font-size: 22px;
+  width: 100%;
+  overflow-x: auto;
+
+  .sequence {
+    margin-right: 300px;
+    display: inline-flex;
+
+    .span-sequence{
+      color: black;
+      margin: 0 auto;
+    }
+  }
+}
+
+li{
+  margin-top: -3px;
+ }
+
+
+mat-form-field{
+  padding: 0;
+  ::ng-deep .mat-mdc-text-field-wrapper {
+    height: 40px !important;
+  };
+  ::ng-deep .mat-mdc-form-field-flex {
+    margin-top: -9px !important;
+  }
+   ::ng-deep .mat-mdc-form-field-error-wrapper{
+     width: 110px;
+     margin-left: -13px !important;
+   }
+}
+
+.margin-bottom-20{
+  margin-bottom: 20px;
+}
+
+label{
+  margin-right: 20px;
+}
+
+button {
+  margin-top: -3px;
+  height    : 40px;
+}
+
+.margin-right{
+  margin-right: 15px;
+}
+
+.width-110{
+  width: 110px;
+}
+
+.height-20{
+  height: 20px;
+}
+
+.height-18{
+  height: 18px;
+}
+
+
+.height-40{
+  height: 40px;
+}
+
+.foot{
+  margin-bottom: 50px;
+}
+
+.sequence span{
+  padding: 5px;
+}
+
+.little-icon{
+  font-size: 12px; /* Ou o tamanho desejado para o ícone */
+  margin-top: 5px;
+}
+
+.red-text{
+  color: #D62E74;
+}
+
+.header-code-block{
+  display: flex;
+  justify-content: space-between;
+  background-color: #212121;
+  color: white;
+ // width         : 100%;
+  height: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  border: 3px solid #212121;
+  border-radius: 10px 10px 0px 0px;
+  margin-bottom: 10px;
+
+  .cursor_pointer{
+    cursor: pointer;
+  }
+}
+
+.code-block {
+  //max-width: 98%;
+  display: block;
+  background-color: black;
+  color: #D62E74;
+  border: 1px solid #212121;
+  border-radius: 10px 10px 10px 10px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
+  //padding: 10px;
+  margin-top: 10px;
+ // height: 62px;
+  overflow-x: auto; /* Adiciona uma barra de rolagem horizontal se o conteúdo for muito largo */
+
+  .sequence {
+    //margin-right: 300px;
+    display: inline-flex;
+  }
+}

@@ -2,6 +2,9 @@
   flex: 1 1 auto;
 }
 
-.mat-tab-group {
-  margin-bottom: 480px;
+.content-body{
+  min-height  : 100%;
+  //padding     : 100px 1rem;
+  display     : block;
+  height: 100%;
 }

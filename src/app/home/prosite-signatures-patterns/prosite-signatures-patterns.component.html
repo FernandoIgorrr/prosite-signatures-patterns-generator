@@ -1,1 +1,90 @@
-<p>prosite-signatures-patterns works!</p>
+<main>
+  <h1>{{ title }} - Desafio 1</h1>
+  <p>Selecione um arquivo de proteínas alinhadas no formato fasta</p>
+  <br />
+
+
+  <form>
+    <div class="margin-bottom-20">
+      <button mat-icon-button (click)="openInfoDialog(0)">
+        <fa-icon style="margin-right: 20px; font-size: 20px;color: #D62E74;" [icon]="faInfoCircle"></fa-icon>
+      </button>
+      <mat-button-toggle-group name="score_model_conservation" [(ngModel)]="score_model_conservation">
+        <mat-button-toggle *ngFor="let smcto of score_model_conservation_toggle_options" [value]="smcto">{{ smcto }}</mat-button-toggle>
+      </mat-button-toggle-group>
+      <button mat-icon-button (click)="openInfoDialog(1)">
+        <fa-icon style="margin-right: 20px; font-size: 20px;color: #D62E74;" [icon]="faInfoCircle"></fa-icon>
+      </button>
+
+  </div>
+  <button mat-icon-button (click)="openInfoDialog(2)">
+  <fa-icon style="margin-right: 20px; font-size: 20px;color: #D62E74;"[icon]="faInfoCircle"></fa-icon> </button>
+    <label for="xthreshold"><strong>X-Threshold:</strong></label>
+    <mat-form-field class="width-110 margin-right">
+      <input id="xthreshold" class="height-18" name="xthreshold" type="number" matInput [formControl]="xthresholdFormControl" [errorStateMatcher]="matcher"
+      placeholder="Ex. 20" min="1">
+
+@if (xthresholdFormControl.hasError('min') && !xthresholdFormControl.hasError('required')) {
+<mat-error><strong>Valor mínimo: 1</strong> </mat-error>
+}
+@if (xthresholdFormControl.hasError('required')) {
+<mat-error><strong>Apenas Números</strong></mat-error>
+}
+    </mat-form-field>
+  <button type="button" mat-raised-button [disabled]="xthresholdFormControl.invalid" (click)="fileInput.click()">Procurar</button>
+  <input hidden (change)="onFileSelected($event)" #fileInput type="file" accept=".fasta" id="file">
+</form>
+  <div *ngIf="fastaEntries.length > 0" class="fasta-container">
+    <ul>
+      <li *ngFor="let entry of fastaEntries">
+        <div class="sequence">
+          <strong>{{ entry.name }}</strong>
+          <span class="span-sequence" *ngFor="let aminoacid of entry.sequence.split('')" [ngStyle]="{'background-color': getColor(aminoacid)}">
+            {{ aminoacid }}
+          </span>
+          </div>
+      </li>
+    </ul>
+  </div>
+    <div *ngIf="prosite_assinatures.length > 0">
+
+    <ul>
+      <li>
+        <h2>Encontrada(s)
+          <span class="red-text">{{prosite_assinatures.length}}</span>
+          assinatura(s) PROSITE para X-Threshold igual a
+          <span class="red-text">{{xthresholdFormControl.value}}</span>
+          :
+        </h2>
+      </li>
+      <li *ngFor="let prosite_assinature of prosite_assinatures; let i = index">
+        <div>
+              <div class="code-block">
+                <div class="header-code-block">
+                  <span>
+                    PROSITE motif pattern <strong>{{i + 1}}</strong>
+                  </span>
+                  <span
+                    class="cursor_pointer"
+                    role="button"
+                    (click)="copyText($event, prosite_assinature.join('-'))"
+                    (keyup.enter)="copyText($event, prosite_assinature.join('-'))"
+                    tabindex="0"
+                    >
+
+                    <fa-icon [icon]="faCopy"></fa-icon>
+                    copiar
+                  </span>
+
+                </div>
+                <div class="sequence">
+              <span class="sequence-text">
+              {{ prosite_assinature.join('-') }}
+            </span></div>
+
+            </div>
+          </div>
+      </li>
+    </ul>
+  </div>
+</main>
